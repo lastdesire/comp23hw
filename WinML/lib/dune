@@ -1,3 +1,5 @@
 (library
  (name winml)
- (libraries parser))
+ (public_name winml))
+
+(include_subdirs unqualified)
