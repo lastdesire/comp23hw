@@ -3,13 +3,14 @@ type constant =
 
 type binop = 
   | Add (** + *)
-  | Div (** - *)
+  | Sub (** - *)
   | Mul (** * *)
 
   | Eq (** = *)
 
 type expression =
   | Const of constant
+  | Var of string
   | BinOp of binop * expression * expression
   | IfThenElse of expression * expression * expression
   | Application of expression * expression * expression list
