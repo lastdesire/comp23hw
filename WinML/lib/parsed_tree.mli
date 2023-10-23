@@ -1,3 +1,7 @@
+(** Copyright 2023-2024, Vyacheslav Buchin and Artur Gagin *)
+
+(** SPDX-License-Identifier: LGPL-3.0-or-later *)
+
 exception Parsed_tree_error of string
 
 val parsed_tree_error : string -> 'a

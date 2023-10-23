@@ -1,3 +1,7 @@
+(** Copyright 2023-2024, Vyacheslav Buchin and Artur Gagin *)
+
+(** SPDX-License-Identifier: LGPL-3.0-or-later *)
+
 (* Source: https://github.com/dmbaturin/bnfgen/blob/master/src/lib/util.ml, such as parse.ml *)
 
 exception Syntax_error of ((int * int) option * string)

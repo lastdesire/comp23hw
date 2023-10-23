@@ -1,3 +1,7 @@
+(** Copyright 2023-2024, Vyacheslav Buchin and Artur Gagin *)
+
+(** SPDX-License-Identifier: LGPL-3.0-or-later *)
+
 open Monads.Std
 open Types
 open Parsed_tree
