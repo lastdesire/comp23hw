@@ -39,8 +39,8 @@ open Parsed_tree
 
 (* %token PREC_LET *)
 (* %right PREC_LET *)
-%token PREC_IF
-%right PREC_IF
+(* %token PREC_IF *)
+(* %right PREC_IF *)
 (* %token PREC_UNARY_MINUS *)
 (* %right PREC_UNARY_MINUS *)
 (* %token PREC_UNARY_NOT *)
@@ -69,7 +69,7 @@ _expr:
 
 expr:
     | _expr                                  { $1 }    
-    | IF; expr; THEN; expr; ELSE; expr       { IfThenElse($2, $4, $6) } %prec PREC_IF
+    | IF; expr; THEN; expr; ELSE; expr       { IfThenElse($2, $4, $6) }
     (* | expr; SEMICOLON; expr *)
     (* | NOT; expr                           { Not $2 } %prec PREC_UNARY_NOT *)
     | expr; EQUAL_EQUAL; expr                { BinOp (Eq, $1, $3) }
