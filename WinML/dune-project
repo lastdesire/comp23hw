@@ -1,4 +1,4 @@
-(lang dune 3.6)
+(lang dune 3.11)
 
 (name winml)
 
@@ -21,7 +21,10 @@
  (name winml)
  (synopsis "MiniML compiler")
  (description "SPbU MiniML compiler project")
- (depends ocaml dune)
+ (depends
+  (ocaml
+   (>= 5.0))
+  dune)
  (tags
   ("MiniML" "Compiler" "OCaml" "Project")))
 

@@ -10,8 +10,8 @@ homepage: "https://github.com/lastdesire/comp23hw"
 doc: "https://url/to/documentation"
 bug-reports: "https://github.com/lastdesire/comp23hw/issues"
 depends: [
-  "ocaml"
-  "dune" {>= "3.6"}
+  "ocaml" {>= "5.0"}
+  "dune" {>= "3.11"}
   "odoc" {with-doc}
 ]
 build: [
