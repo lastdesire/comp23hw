@@ -17,6 +17,8 @@
 (library
  (name winml)
  (public_name winml)
- (libraries menhirLib))
-
+ (libraries menhirLib base monads)
+ (inline_tests)
+ (preprocess (pps ppx_deriving.show ppx_inline_test)))
+ 
 (include_subdirs unqualified)
