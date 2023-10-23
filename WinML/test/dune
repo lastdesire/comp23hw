@@ -2,9 +2,7 @@
  (name parser_factorial_test)
  (modules parser_factorial_test)
  (public_name parser_factorial_test)
- (libraries winml stdio)
- (instrumentation
-  (backend bisect_ppx)))
+ (libraries winml stdio))
 
 (cram
  (deps ./parser_factorial_test.exe))

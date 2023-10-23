@@ -2,14 +2,12 @@ exception Parsed_tree_error of string
 
 let parsed_tree_error s = raise (Parsed_tree_error s)
 
-type constant =
-  | CInt of int
+type constant = CInt of int
 
-type binop = 
+type binop =
   | Add (** + *)
   | Sub (** - *)
   | Mul (** * *)
-
   | Eq (** = *)
 
 type expression =
