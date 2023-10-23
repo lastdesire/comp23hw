@@ -1,6 +1,6 @@
 (** Copyright 2023-2024, Vyacheslav Buchin and Artur Gagin *)
 
-(** SPDX-License-Identifier: LGPL-3.0-or-later *)
+(** SPDX-License-Identifier: LGPL-2.1-or-later *)
 
 exception Parsed_tree_error of string
 

@@ -1,3 +1,7 @@
+(** Copyright 2023-2024, Vyacheslav Buchin and Artur Gagin *)
+
+(** SPDX-License-Identifier: LGPL-2.1-or-later *)
+
 (* Generate list-errors: menhir --list-errors bin/parser.mly > bin/parser.messages *)
 
 %{
