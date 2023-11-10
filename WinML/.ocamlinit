@@ -1,0 +1,16 @@
+#require "monads";;
+#require "dolog";;
+#directory "_build/default/lib/.winml.objs/byte";;
+#load "winml__Parsed_tree.cmo";;
+#load "winml__Types.cmo";;
+#load "winml__Inferencer.cmo";;
+open Winml__Parsed_tree;;
+open Winml__Inferencer;;
+
+let one = Const (CInt 1);;
+let two = Const (CInt 2);;
+let ( |+| ) e1 e2 = BinOp(Add, e1, e2)
+let x = Var "x"
+let fix = 
+  RecFunction ("fix", ["f"], Application(Var "f", Application(Var "fix", Var "f", []), []));;
+  

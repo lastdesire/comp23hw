@@ -1,12 +1,11 @@
-type constant =
-  | CInt of int
+type constant = CInt of int [@@deriving show { with_path = false }]
 
-type binop = 
+type binop =
   | Add (** + *)
   | Sub (** - *)
   | Mul (** * *)
-
   | Eq (** = *)
+[@@deriving show { with_path = false }]
 
 type expression =
   | Const of constant
@@ -14,6 +13,7 @@ type expression =
   | BinOp of binop * expression * expression
   | IfThenElse of expression * expression * expression
   | Application of expression * expression * expression list
+[@@deriving show { with_path = false }]
 
 type declaration = string * string list * expression
 

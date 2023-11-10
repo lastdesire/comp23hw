@@ -1,7 +1,9 @@
 (library
  (name winml)
  (public_name winml)
- (libraries base monads)
+ (libraries base monads dolog)
  (inline_tests)
- (preprocess (pps ppx_deriving.show ppx_inline_test)))
+ (preprocess
+  (pps ppx_deriving.show ppx_inline_test)))
+
 (include_subdirs unqualified)
