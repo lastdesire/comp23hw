@@ -13,10 +13,17 @@ type expression =
   | BinOp of binop * expression * expression
   | IfThenElse of expression * expression * expression
   | Application of expression * expression * expression list
+  | Let of func * expression
 [@@deriving show { with_path = false }]
 
-type declaration = string * string list * expression
+and declaration = string * string list * expression
+[@@deriving show { with_path = false }]
 
-type func =
+and func =
   | Function of declaration
   | RecFunction of declaration
+[@@deriving show { with_path = false }]
+
+let func_name = function
+  | Function (name, _, _)
+  | RecFunction (name, _, _) -> name

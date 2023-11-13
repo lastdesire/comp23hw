@@ -220,9 +220,15 @@ let rec infer_expression ctx subst = function
     let* t, s = ListM.foldM folder (apply subst e1_t, subst) @@ (e2 :: es) in
     Log.debug "infered application: %s" (show_typ @@ apply s t);
     return (t, s)
-;;
+  | Let (func, expr) ->
+    let* (func_t, subst) = infer_func ctx subst func in
+    let name = func_name func in
+    let func_schm = Typ.from_typ func_t |> generalize ctx in
+    let ctx = Context.add name func_schm ctx in
+    infer_expression ctx subst expr
+    
 
-let infer_declaration ctx subst (_, args, body) =
+and infer_declaration ctx subst (_, args, body) =
   let* tvars = ListM.mapM (fun _ -> tvar () |> TI.map ~f:Typ.from_typ) args in
   let ctx =
     List.map Scheme.empty tvars
@@ -239,11 +245,10 @@ let infer_declaration ctx subst (_, args, body) =
     let decl_t = List.fold_right folder tvars init tvar in
     let decl_t = apply subst decl_t in
     return (decl_t, subst)
-;;
 
-let infer_func ctx subst = function
+and infer_func ctx subst = function
   | Function decl -> infer_declaration ctx subst decl
-  | RecFunction ((name, _, _) as decl) ->
+  | RecFunction ((name, _, _) as decl) -> 
     let* v = tvar () in
     let schm = Scheme.empty @@ Typ.from_typ v in
     let ctx = Context.add name schm ctx in
